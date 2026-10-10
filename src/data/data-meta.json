@@ -1,0 +1,184 @@
+{
+ "builder": "scripts/build-data.py",
+ "built_at": "2026-10-09T20:37:37Z",
+ "errors": {},
+ "files": {
+  "exodus": {
+   "bytes": 35885,
+   "dropped": 4,
+   "records": 428,
+   "seconds": 0.7
+  },
+  "malware": {
+   "bytes": 302334,
+   "hashes": 3461,
+   "packages": 678,
+   "seconds": 18.7,
+   "sources": {
+    "mvt": [
+     {
+      "hashes": 0,
+      "name": "NSO Group Pegasus Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/AmnestyTech/investigations/master/2021-07-18_nso/pegasus.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Predator Spyware Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/intellexa_predator/predator.stix2"
+     },
+     {
+      "hashes": 9,
+      "name": "RCS Lab Spyware Indicators of Compromise",
+      "packages": 5,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2022-06-23_rcs_lab/rcs.stix2"
+     },
+     {
+      "hashes": 3228,
+      "name": "Stalkerware Indicators of Compromise",
+      "packages": 652,
+      "url": "https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/stalkerware.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Surveillance campaign linked to mercenary spyware company",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/AmnestyTech/investigations/master/2023-03-29_android_campaign/malware.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Quadream KingSpawn Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2023-04-11_quadream/kingspawn.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Operation Triangulation Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2023-06_01_operation_triangulation/operation_triangulation.stix2"
+     },
+     {
+      "hashes": 34,
+      "name": "WyrmSpy and DragonEgg Indicators of Compromise",
+      "packages": 7,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2023-07-25_wyrmspy_dragonegg/wyrmspy_dragonegg.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Wintego Helios Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/AmnestyTech/investigations/master/2024-05-02_wintego_helios/wintego_helios.stix2"
+     },
+     {
+      "hashes": 4,
+      "name": "NoviSpy (Serbia) Indicators of Compromise",
+      "packages": 4,
+      "url": "https://raw.githubusercontent.com/AmnestyTech/investigations/master/2024-12-16_serbia_novispy/novispy.stix2"
+     },
+     {
+      "hashes": 25,
+      "name": "EagleMsgSpy Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2024-12-25_eaglemsgspy/eaglemsgspy.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Candiru (DevilsTongue) Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/candiru/candiru.stix2"
+     },
+     {
+      "hashes": 8,
+      "name": "ResidentBat Indicators of Compromise",
+      "packages": 8,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/ResidentBat/residentbat.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Cellebrite Indicators of Compromise",
+      "packages": 1,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/cellebrite/cellebrite.stix2"
+     },
+     {
+      "hashes": 1,
+      "name": "DarkSword Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2026-03-30_darksword/darksword.stix2"
+     },
+     {
+      "hashes": 20,
+      "name": "Coruna Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2026-03-03_coruna_cryptowaters/coruna.stix2"
+     },
+     {
+      "hashes": 0,
+      "name": "Morpheus Indicators of Compromise",
+      "packages": 3,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2026-04-23_ips_morpheus/morpheus.stix2"
+     },
+     {
+      "hashes": 131,
+      "name": "BTMOB Indicators of Compromise",
+      "packages": 0,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2026-05-26_btmob/btmob.stix2"
+     },
+     {
+      "hashes": 1,
+      "name": "Spyrtacus Indicators of Compromise",
+      "packages": 4,
+      "url": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/2026-04-09_sio_spyrtacus/spyrtacus.stix2"
+     }
+    ],
+    "stalkerware_ioc": {
+     "families": 148,
+     "packages": 516
+    },
+    "stalkerware_samples": {
+     "hashes": 3228
+    },
+    "stalkerware_watchware": {
+     "families": 27,
+     "packages": 28
+    }
+   },
+   "watchware": 28
+  },
+  "malwarebazaar": {
+   "bytes": 317632,
+   "csv_rows": 1151654,
+   "records": 9926,
+   "seconds": 18.8,
+   "source": "https://bazaar.abuse.ch/export/csv/full/ (разовый экспорт)"
+  },
+  "uad": {
+   "bytes": 276195,
+   "records": 5381,
+   "seconds": 1.8
+  }
+ },
+ "formats": {
+  "apk-hashes.bin": "SHA-256 по 32 байта подряд, отсортированы по значению — бинарный поиск",
+  "malware-packages.json": "{packages: {pkg: family}, hashes: {sha256: family}, watchware: {pkg: family}} — watchware это родительский контроль/трекеры из watchware.yaml, не вредоносное ПО",
+  "trackers.json": "[{name, cat: [...], sig: ['com/google/android/gms/ads/', ...]}] — префиксы классов dex без 'L'",
+  "uad.json": "{package: [list, removal]}; list: Google|Oem|Misc|Carrier|Aosp|Pending; removal: Recommended|Advanced|Expert|Unsafe"
+ },
+ "licenses": {
+  "exodus": "Код εxodus — AGPL-3.0; база и результаты API — Open Database License (ODbL 1.0), содержимое — Database Contents License (DbCL 1.0). Нужна ссылка на источник.",
+  "malwarebazaar": "abuse.ch Terms of Use: данные бесплатны по принципам fair use; коммерческое использование API может требовать подписки — в программе API не вызывается, вшит разовый экспорт (https://bazaar.abuse.ch/faq/#tos).",
+  "mvt": "MIT (mvt-indicators). Сами STIX-бандлы — у своих авторов (Amnesty International и др.).",
+  "stalkerware": "CC-BY 4.0 (README stalkerware-indicators; файла LICENSE в репо нет). Нужна ссылка на источник.",
+  "uad": "GPL-3.0 (репозиторий UAD-ng). Берём только имена пакетов, список и уровень удаления; описания не копируем."
+ },
+ "sources": {
+  "exodus": "https://reports.exodus-privacy.eu.org/api/trackers",
+  "malwarebazaar": "https://bazaar.abuse.ch/export/csv/full/",
+  "malwarebazaar_api": "https://mb-api.abuse.ch/api/v1/",
+  "mvt": "https://raw.githubusercontent.com/mvt-project/mvt-indicators/main/indicators.yaml",
+  "stalkerware_ioc": "https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/ioc.yaml",
+  "stalkerware_samples": "https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/samples.csv",
+  "stalkerware_watchware": "https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/watchware.yaml",
+  "uad": "https://raw.githubusercontent.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation/main/resources/assets/uad_lists.json"
+ }
+}

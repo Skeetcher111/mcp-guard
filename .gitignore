@@ -1,0 +1,27 @@
+node_modules/
+dist/
+out/
+*.log
+.env
+*.env
+!backend/.env.example
+resources/bin/
+
+# backend (Python)
+backend/.venv/
+**/__pycache__/
+*.pyc
+backend/data/
+backend/pairing.json
+backend/*.db
+backend/*.sqlite*
+
+# секреты и подписи / secrets and signing
+src/main/embedded.js
+*.keystore
+*.jks
+*.pfx
+*.p12
+*.pem
+*.key
+google-services.json

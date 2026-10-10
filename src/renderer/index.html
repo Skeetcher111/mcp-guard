@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'" />
+  <title>MCP Guard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-title"><span class="topbar-logo"></span>MCP Guard</div>
+      <nav class="topbar-actions">
+        <button class="topbar-btn" id="connect-btn" type="button">Подключить устройство</button>
+        <button class="topbar-btn" id="scan-btn" type="button" disabled>Сканировать</button>
+        <button class="topbar-btn" id="settings-btn" type="button" hidden>Настройки</button>
+      </nav>
+    </header>
+
+    <div class="body">
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Устройство</div>
+          <ul class="sidebar-list">
+            <li class="sidebar-item active" id="device-status">Нет подключённого устройства</li>
+          </ul>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Разделы</div>
+          <ul class="sidebar-list">
+            <li class="sidebar-item" data-view="packages">Приложения</li>
+            <li class="sidebar-item" data-view="report">Итог</li>
+            <li class="sidebar-item" data-view="journal">Журнал</li>
+            <li class="sidebar-item" data-view="settings">Настройки</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="content" id="content">
+        <div class="content-placeholder">
+          <p>Подключите Android-устройство через USB, чтобы начать.</p>
+        </div>
+      </main>
+    </div>
+
+    <footer class="statusbar">
+      <span id="status-text">Готово</span>
+    </footer>
+  </div>
+
+  <script src="neo-map.js"></script>
+  <script src="matrix.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "name": "mcp-guard",
+  "version": "1.4.0",
+  "description": "MCP Guard — личный Android-сканер угроз",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "setup:adb": "node scripts/setup-adb.js",
+    "make:icon": "node scripts/make-icon.js",
+    "dist": "electron-builder --win --x64",
+    "pack": "electron-builder --dir"
+  },
+  "author": "MCPteam (https://mcpteam.ru)",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "ru.mcpteam.mcpguard",
+    "productName": "MCP Guard",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/bin",
+        "to": "bin",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "MCP-Guard-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "MCP Guard"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://download.mcpteam.ru:8443/mcp-guard-updates/"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
+  },
+  "repository": "https://github.com/Skeetcher111/mcp-guard"
+}
