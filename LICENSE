@@ -19,18 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-The MIT license covers the source code. The threat data in src/data/ is
-built from third-party sources and keeps their own licenses:
-
-- trackers.json: Exodus Privacy, ODbL 1.0 / DbCL 1.0
-  https://reports.exodus-privacy.eu.org
-- malware-packages.json: stalkerware-indicators (CC BY 4.0,
-  https://github.com/AssoEchap/stalkerware-indicators) and mvt-indicators
-  (MIT, https://github.com/mvt-project/mvt-indicators)
-- apk-hashes.bin: MalwareBazaar by abuse.ch, terms of use
-  https://bazaar.abuse.ch/faq/#tos
-- uad.json: package names and removal levels from UAD-ng (GPL-3.0,
-  https://github.com/Universal-Debloater-Alliance/universal-android-debloater-next-generation)

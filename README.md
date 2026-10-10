@@ -59,7 +59,7 @@ npm run dist        # установщик NSIS в dist/
 
 Код — MIT. Данные в `src/data/` собраны из открытых источников и остаются под их
 лицензиями (Exodus Privacy, stalkerware-indicators, mvt-indicators, MalwareBazaar,
-UAD-ng), подробности в [LICENSE](LICENSE).
+UAD-ng), подробности в [NOTICE](NOTICE).
 
 ## English
 
@@ -94,6 +94,6 @@ Checks: `node test/rules.check.js`, `node test/tidy.check.js`, `node test/data.c
 The optional `backend/` (FastAPI + SQLite) only serves Google Play cards; the report
 works without it.
 
-Code is MIT-licensed; threat data keeps the licenses of its sources, see [LICENSE](LICENSE).
+Code is MIT-licensed; threat data keeps the licenses of its sources, see [NOTICE](NOTICE).
 
 Download and website: https://mcpteam.ru/mcpguard/ · Built by [MCPteam](https://mcpteam.ru).
