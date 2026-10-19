@@ -55,6 +55,24 @@ const SPY = new Set([
 const MESSENGER = /sms|messag|messeng|telegram|whatsapp|viber|dialer|phone|contacts|bank|sber|tinkoff|alfa|vtb/i;
 const CLUSTER_MIN = 4;
 
+// Удалённый доступ: такие программы ставит «служба безопасности банка» или «оператор»,
+// чтобы видеть экран и управлять телефоном. Свои — оставить, чужие по звонку — удалить.
+const REMOTE = /^(com\.anydesk\.|com\.carriez\.flutter_hbb|com\.rustdesk\.|com\.teamviewer\.|com\.sand\.airdroid|com\.sand\.airmirror|com\.realvnc\.|com\.splashtop\.|com\.rsupport\.|com\.logmein\.|com\.getscreen\.|com\.aweray\.|com\.oray\.sunlogin|com\.ammyy\.|com\.rudesktop\.|ru\.assistant\.|com\.zoho\.assist|com\.supremocontrol|com\.mobizen|com\.microsoft\.quickassist|com\.remotepc|com\.iiordanov\.|com\.koushikdutta\.vysor)/;
+const REMOTE_REASON = 'программа удалённого доступа: через неё чужой человек видит экран и управляет телефоном. ' +
+  'Её просят поставить мошенники под видом «службы безопасности банка» или «оператора» — если ставили по звонку, удалите';
+const PATCH_MAX_DAYS = 183;
+
+// -> текст предупреждения | ''
+function patchWarning(patch, now = Date.now()) {
+  const t = Date.parse(patch || '');
+  if (!t) return '';
+  const days = Math.floor((now - t) / 86400000);
+  if (days <= PATCH_MAX_DAYS) return '';
+  const months = Math.floor(days / 30);
+  return `Телефон без свежих исправлений безопасности: последний патч Android ${patch} (${months} мес. назад). ` +
+    'Проверьте обновление системы в настройках; если его нет — не ставьте приложения не из магазина и не давайте никому удалённый доступ.';
+}
+
 // Вес признаков «захвата телефона» (control.js).
 const CONTROL_WEIGHTS = {
   device_admin: 3, accessibility: 3, installs_apps: 3, can_install: 1,
@@ -213,9 +231,15 @@ function scorePackage(row, publishers) {
     reasons.push('сочетание спецвозможностей и окон поверх — типично для банковских троянов');
   }
 
+  const remote = REMOTE.test(pkg);
+  if (remote) {
+    score = Math.max(score, 60);
+    reasons.unshift(REMOTE_REASON);
+  }
+
   if (scam >= 35) score = Math.max(score, Math.min(90, 30 + scam));
   const control = (row.control && row.control.flags) || [];
-  if (big && !control.length) score = Math.min(score, 15);
+  if (big && !control.length && !remote) score = Math.min(score, 15);
   score = Math.max(0, Math.min(100, score));
 
   let shown = reasons;
@@ -229,7 +253,7 @@ function scorePackage(row, publishers) {
     ];
   }
   const reason = shown.join('; ');
-  return { score, reason: reason[0].toUpperCase() + reason.slice(1) + '.', kind: scam >= 35 ? 'scam' : '' };
+  return { score, reason: reason[0].toUpperCase() + reason.slice(1) + '.', kind: remote ? 'remote' : scam >= 35 ? 'scam' : '' };
 }
 
 // ------------------------------------------------------------------ сведение
@@ -309,9 +333,10 @@ function buildReport(device, entries) {
     analysis: 'local-rules+threat-db',
     disclaimer: DISCLAIMER,
     device: device || {},
+    device_warnings: [patchWarning(device && device.securityPatch)].filter(Boolean),
     package_count: packages.length,
     packages,
   };
 }
 
-module.exports = { buildReport, scorePackage, dbLookup, dbInfo, combine, category, DISCLAIMER, BIG_PUBLISHERS, STORES };
+module.exports = { buildReport, patchWarning, REMOTE, scorePackage, dbLookup, dbInfo, combine, category, DISCLAIMER, BIG_PUBLISHERS, STORES };

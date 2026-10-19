@@ -80,11 +80,12 @@ async function getProp(serial, prop) {
 }
 
 async function getDeviceInfo(serial) {
-  const [model, androidVersion] = await Promise.all([
+  const [model, androidVersion, securityPatch] = await Promise.all([
     getProp(serial, 'ro.product.model'),
     getProp(serial, 'ro.build.version.release'),
+    getProp(serial, 'ro.build.version.security_patch').catch(() => ''),
   ]);
-  return { serial, model: model || 'Неизвестная модель', androidVersion: androidVersion || '?' };
+  return { serial, model: model || 'Неизвестная модель', androidVersion: androidVersion || '?', securityPatch };
 }
 
 // Удаление приложения с телефона. Только через adb uninstall и только на

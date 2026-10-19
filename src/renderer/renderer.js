@@ -596,6 +596,7 @@ function renderReport(report) {
     el('div', 'report-mode', `Проверено приложений: ${report.package_count}${dnsOn ? ' · DNS без рекламы включён' : ''}`)
   );
   head.appendChild(el('div', 'report-disclaimer', report.disclaimer));
+  for (const w of report.device_warnings || []) head.appendChild(el('div', 'report-warning', w));
   wrap.appendChild(head);
 
   const toolbar = el('div', 'report-toolbar');

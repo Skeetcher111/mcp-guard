@@ -1,6 +1,6 @@
 {
   "name": "mcp-guard",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "MCP Guard — личный Android-сканер угроз",
   "main": "src/main.js",
   "private": true,
