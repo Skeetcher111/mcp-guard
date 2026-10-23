@@ -61,6 +61,7 @@ const REMOTE = /^(com\.anydesk\.|com\.carriez\.flutter_hbb|com\.rustdesk\.|com\.
 const REMOTE_REASON = 'программа удалённого доступа: через неё чужой человек видит экран и управляет телефоном. ' +
   'Её просят поставить мошенники под видом «службы безопасности банка» или «оператора» — если ставили по звонку, удалите';
 const PATCH_MAX_DAYS = 183;
+const OEM = /^(com\.miui\.|com\.xiaomi\.|com\.samsung\.|com\.sec\.|com\.huawei\.|com\.hihonor\.|com\.oppo\.|com\.coloros\.|com\.android\.|com\.google\.android\.)/;
 
 // -> текст предупреждения | ''
 function patchWarning(patch, now = Date.now()) {
@@ -304,7 +305,9 @@ function buildReport(device, entries) {
   const packages = entries.map((e) => {
     const { score, reason, kind } = scorePackage(e, publishers);
     const dbHit = dbLookup(e.package, e.hash);
-    const flags = (e.control && e.control.flags) || [];
+    let flags = (e.control && e.control.flags) || [];
+    // Предустановленное от производителя (запись экрана MIUI и т.п.) без значка и с окнами поверх — норма, не шпион.
+    if (OEM.test(e.package) && !STORES.has(e.installer || '')) flags = flags.filter((f) => f !== 'hidden_icon' && f !== 'overlay');
     const { risk, source } = combine(score, dbHit, flags);
     const p = {
       package: e.package,

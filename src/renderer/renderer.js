@@ -108,7 +108,25 @@ async function refreshDevices() {
     return;
   }
 
-  const connected = result.devices.filter((device) => device.state === 'device');
+  // Настоящий телефон первым: эмулятор на этом же ПК не должен перехватить проверку.
+  const connected = result.devices
+    .filter((device) => device.state === 'device')
+    .sort((a, b) => a.serial.startsWith('emulator-') - b.serial.startsWith('emulator-'));
+  const waiting = result.devices.some((d) => d.state === 'unauthorized' || d.state === 'authorizing');
+
+  if (waiting && !connected.some((d) => !d.serial.startsWith('emulator-'))) {
+    deviceStatusEl.textContent = 'Ждём разрешения на телефоне';
+    scanBtn.disabled = true;
+    state.device = null;
+    setStatus('Ждём телефон');
+    renderPlaceholder(
+      'Телефон подключён, но не разрешил доступ. Разблокируйте экран телефона и нажмите «Разрешить» ' +
+        'в окне «Разрешить отладку по USB?» (можно отметить «Всегда разрешать с этого компьютера»). ' +
+        'Если окна нет — переподключите кабель. Программа подождёт и продолжит сама.'
+    );
+    setTimeout(refreshDevices, 2000);
+    return;
+  }
 
   if (connected.length === 0) {
     deviceStatusEl.textContent = 'Нет подключённого устройства';
