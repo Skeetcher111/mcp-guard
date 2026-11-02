@@ -9,6 +9,8 @@
 Сайт и готовый установщик: **https://mcpteam.ru/mcpguard/**
 Сделано в [MCPteam](https://mcpteam.ru): сайты, приложения и программы на заказ.
 
+Есть в подборке [awesome-android-security](https://github.com/saeidshirazi/awesome-android-security#forensic-analysis), раздел Forensic Analysis.
+
 ![Итог проверки](docs/img/summary.jpg)
 
 ## Русский
@@ -66,6 +68,8 @@ UAD-ng), подробности в [NOTICE](NOTICE).
 MCP Guard checks an Android phone from a Windows PC over USB. It finds malware and
 stalkerware, scam games installed by kids, firmware ads and vendor bloat, and cleans
 the phone up in one click.
+
+Listed in [awesome-android-security](https://github.com/saeidshirazi/awesome-android-security#forensic-analysis) (Forensic Analysis).
 
 - Reads third-party apps via `adb`: permissions, installer, APK SHA-256, ad SDKs
   inside the APK.
